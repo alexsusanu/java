@@ -11,6 +11,14 @@ public class FileExample{
             }catch (IOException e){}
         }
     }
+    public File newFile(String name){
+        File f = new File(name);
+        try{
+            f.createNewFile();
+            System.out.println("file created");
+        }catch (IOException e){}
+        return f;
+    }
 
     public File newDir(){
         File f = new File("ExampleDIR");
@@ -24,6 +32,12 @@ public class FileExample{
             for (File f : files){
                 System.out.println(f.getName());
             }
+        }
+    }
+
+    public void renameFile(File f){
+        if(f.renameTo(new File("renamed.txt"))){
+            System.out.println("file renamed");
         }
     }
 }
